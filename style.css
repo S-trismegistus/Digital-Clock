@@ -38,19 +38,36 @@ body {
 }
 
 /* colors & thickness (actual length set by JS for perfect scaling) */
+/* Hour Hand: thicker near center, thinner at tip, soft blue */
 .hand.hour {
-  width: 8px;
-  height: 70px;
-  background: #4A90E2;
-  border-radius: 4px 4px 1px 1px; /* thicker at bottom, thinner at top */
-  /* Optional: make gradient for smoother taper */
-  background: linear-gradient(to top, #4A90E2 0%, #4A90E2 60%, rgba(74,144,226,0.8) 100%);
-  clip-path: polygon(0% 0%, 100% 0%, 60% 100%, 40% 100%);
-
+  width: 10px;  /* max width at base */
+  height: 70px; /* scale dynamically if needed */
+  background: linear-gradient(to top, #4A90E2 0%, #4A90E2 90%, rgba(74,144,226,0.7) 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);
+  border-radius: 4px;
+  transform-origin: 50% 100%;
 }
 
-.hand.minute { width: 6px; background: #212121; }
-.hand.second { width: 3px; background: #E67514; }
+/* Minute Hand: thicker near center, thinner at tip, green */
+.hand.minute {
+  width: 8px;
+  height: 100px;
+  background: linear-gradient(to top, #34C759 0%, #34C759 90%, rgba(52,199,89,0.7) 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);
+  border-radius: 4px;
+  transform-origin: 50% 100%;
+}
+
+/* Second Hand: slightly thicker near center, red accent */
+.hand.second {
+  width: 4px;
+  height: 120px;
+  background: linear-gradient(to top, #ff3b30 0%, #ff3b30 90%, rgba(255,59,48,0.7) 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 60% 100%, 40% 100%);
+  border-radius: 2px;
+  transform-origin: 50% 100%;
+}
+
 
 .center-dot {
   position:absolute;
@@ -111,3 +128,4 @@ body {
   .hand.second { width:2px; }
   .date { font-size: 0.98rem; }
 }
+
